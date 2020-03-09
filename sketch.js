@@ -48,7 +48,7 @@ function draw(pixels) {
     }
   else{
 
-    if (mouseIsPressed) {
+    if (mouseIsPressed && mouseX >= 0 && mouseY >= 0) {
       cursor(CROSS)
 
         if (brush == "red") {
@@ -88,14 +88,21 @@ function draw(pixels) {
           stroke(0,0,0)
           //this is the thickness
           strokeWeight(brushsize)
-          //line(mouseX - 10, mouseY - 10, mouseX + 10, mouseY + 10
+          var hor =  parseInt(mouseX/10);
+          var ver = parseInt(mouseY/10);
+
+          var tLeftW = pixels[hor][ver][0];
+          var tLeftH = pixels[hor][ver][1];
+          var bRightW = pixels[hor][ver][2];
+          var bRightH = pixels[hor][ver][3];
+
           fill(0,0,0)
-          circle (mouseX, mouseY, 50)
+          rect(tLeftW, tLeftH, 10, 10);
         }
 
 
         if (brush == "green") {
-          stroke (0,255,0)
+          stroke (0,128,0)
           //stroke(42,110,59)
           //this is the thickness
           strokeWeight(brushsize)
@@ -128,6 +135,98 @@ function draw(pixels) {
           fill(245,236,71)
           rect(tLeftW, tLeftH, 10, 10);
       }
+
+      if (brush == "brick") {
+        stroke(80,45,25)
+        //this is the thickness
+        strokeWeight(brushsize)
+
+        var hor =  parseInt(mouseX/10);
+        var ver = parseInt(mouseY/10);
+
+        var tLeftW = pixels[hor][ver][0];
+        var tLeftH = pixels[hor][ver][1];
+        var bRightW = pixels[hor][ver][2];
+        var bRightH = pixels[hor][ver][3];
+
+        fill(90,40,20)
+        rect(tLeftW, tLeftH, 10, 10);
+
+      }
+
+      if (brush == "cement") {
+        stroke(127,127,127)
+        //this is the thickness
+        strokeWeight(brushsize)
+
+        var hor =  parseInt(mouseX/10);
+        var ver = parseInt(mouseY/10);
+
+        var tLeftW = pixels[hor][ver][0];
+        var tLeftH = pixels[hor][ver][1];
+        var bRightW = pixels[hor][ver][2];
+        var bRightH = pixels[hor][ver][3];
+
+        fill(178,178,178)
+        rect(tLeftW, tLeftH, 10, 10);
+
+      }
+
+      if (brush == "babypink") {
+        stroke(244,194,194)
+        //this is the thickness
+        strokeWeight(brushsize)
+
+        var hor =  parseInt(mouseX/10);
+        var ver = parseInt(mouseY/10);
+
+        var tLeftW = pixels[hor][ver][0];
+        var tLeftH = pixels[hor][ver][1];
+        var bRightW = pixels[hor][ver][2];
+        var bRightH = pixels[hor][ver][3];
+
+        fill(233,194,194)
+        rect(tLeftW, tLeftH, 10, 10);
+
+      }
+
+
+      if (brush == "skyblue") {
+        stroke(135, 206, 235)
+        //this is the thickness
+        strokeWeight(brushsize)
+
+        var hor =  parseInt(mouseX/10);
+        var ver = parseInt(mouseY/10);
+
+        var tLeftW = pixels[hor][ver][0];
+        var tLeftH = pixels[hor][ver][1];
+        var bRightW = pixels[hor][ver][2];
+        var bRightH = pixels[hor][ver][3];
+
+        fill(135, 206, 235)
+        rect(tLeftW, tLeftH, 10, 10);
+
+      }
+
+      if (brush == "purple") {
+        stroke(127,0,255)
+        //this is the thickness
+        strokeWeight(brushsize)
+
+        var hor =  parseInt(mouseX/10);
+        var ver = parseInt(mouseY/10);
+
+        var tLeftW = pixels[hor][ver][0];
+        var tLeftH = pixels[hor][ver][1];
+        var bRightW = pixels[hor][ver][2];
+        var bRightH = pixels[hor][ver][3];
+
+        fill(150,3,255)
+        rect(tLeftW, tLeftH, 10, 10);
+
+      }
+
 
       if (brush == "white") {
         stroke(255,255,255)
@@ -170,11 +269,33 @@ rect(10,130,30,30)
 
 fill (245,236,71)
 rect(10,170,30,30)
+
+//brick
+fill (80,45,25)
+rect(10,210,30,30)
+
+//cement
+fill (127,127,127)
+rect(10,250,30,30)
+
+//baby pink
+fill (244,194,194)
+rect(10,290,30,30)
+
+//skyblue
+fill (135, 206, 235)
+rect(10,330,30,30)
+
+//purple
+fill (127, 0, 255)
+rect(10,370,30,30)
+
 //white
 stroke (0)
 strokeWeight (2)
 fill (255,255,255)
-rect(10,210,30,30)
+rect(10,410,30,30)
+
 
 {
 noFill()
@@ -216,9 +337,34 @@ function mouseClicked(){
   }
 
   if(mouseX > 10 && mouseX < 40 && mouseY > 210 && mouseY < 240) {
+    print("brick button")
+    brush="brick"
+  }
+  if(mouseX > 10 && mouseX < 40 && mouseY > 250 && mouseY < 280) {
+    print("cement")
+    brush="cement"
+  }
+
+  if(mouseX > 10 && mouseX < 40 && mouseY > 290 && mouseY < 320) {
+    print("babypink")
+    brush="babypink"
+  }
+
+  if(mouseX > 10 && mouseX < 40 && mouseY > 330 && mouseY < 360) {
+    print("skyblue")
+    brush="skyblue"
+  }
+
+  if(mouseX > 10 && mouseX < 40 && mouseY > 370 && mouseY < 400) {
+    print("purple")
+    brush="purple"
+  }
+
+  if(mouseX > 10 && mouseX < 40 && mouseY > 410 && mouseY < 440) {
     print("white")
     brush="white"
   }
+
 }
 
 function keyPressed() {
