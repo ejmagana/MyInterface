@@ -7,7 +7,7 @@ let brushsize = 4
 let img
 
 function preload() {
- img = createImg('https://ak8.picdn.net/shutterstock/videos/1015902028/thumb/10.jpg')
+ img = createImg('wow.jpg')
  img.hide()
 }
 
